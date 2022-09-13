@@ -4,13 +4,24 @@ public class Task1
     //0.5 балла - если посчитаете в цикле
     //1 балл - если посчитаете рекурсией
     public static int fact(int n){
-        return n;
+        if (n == 1){
+            return 1;
+        }else{
+            return n*fact(n-1);
+        }
     }
 
     //вывести таблицу умножения на экран - 1 балл
     //подсказка - использовать двойной for
     public static void table(){
-        //Ваше решение здесь
+        for (int i=1; i<10; i++){
+            for (int j=1; j<10; j++){
+                System.out.print(i*j);
+                System.out.print(' ');
+            }
+            System.out.println();
+        }
+
     }
 
     //посчитать сумму цифр числа
@@ -18,8 +29,12 @@ public class Task1
     //для любого числа - 1 балл
     //подсказка - в случае для любого числа используйте while
     public static int sum(int n){
-        //Ваше решение здесь
-        return n;
+        int s = 0;
+        while(n != 0){
+            s += (n % 10);
+            n /= 10;
+        }
+        return s;
     }
 
     //определить, является ли год високосным
@@ -30,34 +45,64 @@ public class Task1
     //Годы 2100, 2200 и 2300 - не високосные.
     //за правильный ответ - 0.5 балла
     public static boolean isLeapYear(int year) {
-        //Ваше решение здесь
-        return true;
+        if (year % 400 == 0) {
+            return true;
+        } else if (year % 100 == 0) {
+            return false;
+        } else if (year % 4 == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     //здесь вам нужно будет использовать результат прошлой задачи
     //и вывести, сколько дней в году
     //правильный ответ - 0.5 балла
     public static int daysInYear(int year) {
-        if (isLeapYear(year)){
-            //
+        if (isLeapYear(year) == true){
+            return 366;
         } else {
-            //
+            return 355;
         }
-        return 0;
     }
 
     //определить номер дня недели по строке
     //например: Понедельник - 1
     //правильный ответ - 1 балл
     public static int dayOfTheWeek(String n){
-        //Ваше решение здесь
+        switch(n){
+            case "Понедельник":
+                return 1;
+            case "Вторник":
+                return 2;
+            case "Среда":
+                return 3;
+            case "Четверг":
+                return 4;
+            case "Пятница":
+                return 5;
+            case "Суббота":
+                return 6;
+            case "Воскресенье":
+                return 7;
+        }
         return 0;
     }
 
     //вывести массив на экран в виде: [1, 5, 3, 7, 10, 2, 5]
     //правильное решение - 0.5 балла
     public static void printArray(int[] array){
-        //Ваше решение здесь
+        int b = array.length;
+        System.out.print("[");
+        for (int i = 0; i < b; i++) {
+            System.out.print(array[i]);
+            if (i<b-1){
+                System.out.print(", ");
+            }
+        }
+        System.out.print("]");
+        System.out.println();
     }
 
     //вывести двойной массив на экран в виде:
@@ -66,7 +111,17 @@ public class Task1
     // ...
     //правильное решение - 0.5 балла
     public static void printArray(int[][] array){
-        //Ваше решение здесь
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("[");
+            for (int j = 0; j < array[0].length; j++) {
+                System.out.print(array[i][j]);
+                if (j < array[0].length-1){
+                    System.out.print(", ");
+                }
+            }
+            System.out.print("]");
+            System.out.println();//перенос строки ради визуального сохранения табличной формы
+        }
     }
 
     //отсортировать одномерный массив в порядке возрастания
@@ -74,7 +129,15 @@ public class Task1
     //метод пузырька (один из самых простых для понимания)
     //правильный ответ - 1 балл
     public static int[] sort(int[] array){
-        //Ваше решение здесь
+        for(int i = array.length-1 ; i > 0 ; i--){
+            for(int j = 0 ; j < i ; j++){
+                if( array[j] > array[j+1] ){
+                    int tmp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = tmp;
+                }
+            }
+        }
         return array;
     }
 
