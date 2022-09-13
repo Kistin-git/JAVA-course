@@ -128,6 +128,7 @@ public class Task1
     //если не знаете, как сортировать, то подсказка -
     //метод пузырька (один из самых простых для понимания)
     //правильный ответ - 1 балл
+    //...
     public static int[] sort(int[] array){
         for(int i = array.length-1 ; i > 0 ; i--){
             for(int j = 0 ; j < i ; j++){
