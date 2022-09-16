@@ -3,7 +3,7 @@ public class Task1
     //посчитать факториал числа n
     //0.5 балла - если посчитаете в цикле
     //1 балл - если посчитаете рекурсией
-    public static int fact(int n){
+    public static int fact(int n) {
         return n;
     }
 
